@@ -12,10 +12,27 @@
     <br>
     <div class="container">
         <div class="container-fluid server-info-container">
-            <h3>Connected Devices:</h3>
-            <div class="container-fluid">
-                
-            </div>
+            {% if is_logged_in == False %}
+                <div class="container-fluid" id="login-container">
+                    <h3>Login</h3>
+                    <form method="post">
+                        <div class="form-group">
+                          <label for="input_name">Name</label>
+                          <input type="text" class="form-control" id="input_name" aria-describedby="name_help" placeholder="Enter Name" name="input_name">
+                          <small id="name_help" class="form-text text-muted">Enter the name you want to be recognised by</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            {% else %}
+                <div id="connected-name">
+                    <h4>Connected as: {{ uname }}</h4>
+                </div>
+                <h3>Connected Devices:</h3>
+                <div class="container-fluid">
+                    
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

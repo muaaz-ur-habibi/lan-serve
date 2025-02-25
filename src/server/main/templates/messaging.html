@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Message{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="container">
+        <center>
+            <h1>LANServe</h1>
+            <h5>Simple LAN server for messaging,<br>media sharing and notifying</h5>
+        </center>
+    </div>
+    <br>
+    <div class="container">
+        <div class="container-fluid server-info-container">
+            <h3>Message someone:</h3>
+            <div class="container-fluid">
+                <form method="post">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="recipient" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="recipient">
+                          Select recipient
+                        </button>
+                        <input type="text" name="recipient-holder" id="recipient-holder">
+                        <div class="dropdown-menu" aria-labelledby="recipient">
+                            {% for user in USERS %}
+                                <button class="dropdown-item messaging-dropdown-item" type="button"onclick="getMessageRecipientName(this)">{{ user["name"] }}</button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Message:</span>
+                            </div>
+                            <textarea class="form-control" aria-label="With textarea" placeholder="..." name="message-box"></textarea>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
