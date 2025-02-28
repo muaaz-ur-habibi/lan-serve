@@ -22,7 +22,7 @@
                         <input type="text" name="recipient-holder" id="recipient-holder">
                         <div class="dropdown-menu" aria-labelledby="recipient">
                             {% for user in USERS %}
-                                <button class="dropdown-item messaging-dropdown-item" type="button"onclick="getMessageRecipientName(this)">{{ user["name"] }}</button>
+                                <button class="dropdown-item messaging-dropdown-item" type="button"onclick="getMessageRecipientName(this)">{{ user[0] }}</button>
                             {% endfor %}
                         </div>
                     </div>
@@ -33,6 +33,7 @@
                             </div>
                             <textarea class="form-control" aria-label="With textarea" placeholder="..." name="message-box"></textarea>
                             <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="button">📎</button>
                                 <button class="btn btn-outline-secondary" type="submit">Send</button>
                             </div>
                         </div>
